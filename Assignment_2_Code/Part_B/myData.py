@@ -1,7 +1,7 @@
 import numpy as np
 import random
 
-class Circle:
+class makeCircle:
     def __init__(self,h,k,r,dataLabel):
         self.dataLabel = dataLabel
         self.h = h
@@ -29,11 +29,11 @@ class Circle:
             return [random.gauss(mean,sd)+x,random.gauss(mean,sd)+y]
 
 
-class DataSet:
+class makeData:
     def __init__(self,numData):
         self.numData = numData
-        self.c1 = Circle(0,0,1,0)
-        self.c2 = Circle(0,3,1,1)
+        self.c1 = makeCircle(0,0,1,0)
+        self.c2 = makeCircle(0,3,1,1)
 
     def getDataNoiseFalse(self):
         points = []
@@ -99,7 +99,7 @@ class MyPerceptron:
     def setDataPoints(self):
         delta = 0
         i=0
-        combine = zip(self.points,self.labels)
+        combine = list(zip(self.points,self.labels))
         while i<len(combine):
             dataPoint = combine[i][0]
             dataLabel = combine[i][1]
